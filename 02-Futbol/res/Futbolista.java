@@ -46,9 +46,7 @@ public class Futbolista extends Thread {
         for (int i = 0; i < NUM_JUGADORS; i++) {
             jugadors[i] = new Futbolista(noms[i]);
             jugadors[i].start();
-        }
 
-        for (int i = 0; i < NUM_JUGADORS; i++) {
             try {
                 jugadors[i].join();
             } catch (InterruptedException e) {
