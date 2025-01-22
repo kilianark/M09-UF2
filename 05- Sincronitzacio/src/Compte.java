@@ -6,12 +6,16 @@ public class Compte {
         saldo = 0.0f;
     }
 
-    public static Compte getInstance(){
+    public static synchronized Compte getInstance(){
         if (instance == null) instance = new Compte();
         return instance;
     }
 
-    public float getSaldo() { return saldo; }
+    public synchronized float getSaldo() { return saldo; }
 
-    public void setSaldo(float saldo) { this.saldo = saldo; }
+    public synchronized void setSaldo(float saldo) { this.saldo = saldo; }
+
+    public synchronized void ingressar(float quantitat) { saldo += quantitat; }
+
+    public synchronized void retirar(float quantitat) { saldo -= quantitat; }
 }
